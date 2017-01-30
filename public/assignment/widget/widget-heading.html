@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Heading Widget</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+
+    <link href="../css/style.css" type="text/css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+</head>
+<body class="widget-heading-page">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-left no-left-margin">
+            <a class="navbar-link" href="widget-list.html">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="navbar-text pull-right no-right-margin">
+            <a class="navbar-link" href="widget-list.html">
+                <span class="glyphicon glyphicon-ok"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand navbar-link" href="">
+                Widget Edit
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <form>
+        <div class="form-group">
+            <label for="widget-name">Name</label>
+            <input type="text" class="form-control" id="widget-name" name="widget-name"
+            value="Header 1"/>
+        </div>
+        <div class="form-group">
+            <label for="widget-text">Text</label>
+            <input type="text" class="form-control" id="widget-text" name="widget-text"
+                   value="La La Land wins Best Film Oscar."/>
+        </div>
+        <div class="form-group">
+            <label for="widget-size">Size</label>
+            <input type="number" class="form-control" id="widget-size" name="widget-size"
+                   value="3" max="6" min="1"/>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-block btn-danger" href="widget-list.html">Delete</a>
+        </div>
+    </form>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right no-right-margin">
+            <a class="navbar-link" href="../user/profile.html">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>
