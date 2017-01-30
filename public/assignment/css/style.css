@@ -62,3 +62,8 @@ textarea.form-control {
     max-width:100%;
     min-width: 100%;
 }
+.list-group {
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
