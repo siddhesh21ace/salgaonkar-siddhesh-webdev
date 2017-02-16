@@ -1,81 +1,100 @@
 .form-group {
     margin-bottom: 8px;
 }
+
 .login-page, .register-page, .profile-page, .website-list-page, .list-page, .widget-list-page,
-.widget-chooser-page, .widget-heading-page, .widget-image-page, .widget-youtube-page {
+.widget-chooser-page, .widget-edit-page {
     padding: 70px 0;
 }
+
 .no-right-margin {
-    margin-right:0;
+    margin-right: 0;
 }
+
 .no-left-margin {
-    margin-left:0;
+    margin-left: 0;
 }
+
 .navbar-default {
     background-image: none !important;
 }
-.profile-page .navbar-default, .website-list-page .navbar-default, .website-new-page .navbar-default,.website-edit-page .navbar-default{
+
+.profile-page .navbar-default, .website-list-page .navbar-default, .website-new-page .navbar-default, .website-edit-page .navbar-default {
     background-color: #3E8ACC;
 }
+
 .profile-page .navbar-default .navbar-brand, .profile-page .navbar-default .navbar-link,
 .website-list-page .navbar-default .navbar-brand, .website-list-page .navbar-default .navbar-link,
 .website-new-page .navbar-default .navbar-brand, .website-new-page .navbar-default .navbar-link,
 .website-edit-page .navbar-default .navbar-brand, .website-edit-page .navbar-default .navbar-link {
-    color:#FFF ;
+    color: #FFF;
 }
+
 .list-group-item {
-    border:none !important;
+    border: none !important;
     padding: 10px 0 !important;
 }
+
 .navbar-fixed-bottom .navbar-link, a.list-group-item, button.list-group-item {
     color: #3E8ACC;
 }
+
 .navbar-fixed-bottom .navbar-link:hover {
     color: #337ab7;
 }
+
 .no-margin {
     margin: 0;
 }
+
 .list-group-item .img-responsive {
-    width:100%;
+    width: 100%;
 }
-.scrollable-pane{
+
+.scrollable-pane {
     position: absolute;
     top: 0;
     bottom: 0;
-    margin:50px auto;
+    margin: 50px auto;
     padding: 15px;
     overflow: auto;
 }
+
 .left-pane {
-    border-right:1px solid #EEE;
+    border-right: 1px solid #EEE;
 }
+
 .right-pane {
     right: 0;
     overflow: auto;
 }
+
 .list-group-item a {
     text-decoration: none !important;
 }
+
 textarea.form-control {
-    max-width:100%;
+    max-width: 100%;
     min-width: 100%;
 }
+
 .list-group {
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     box-shadow: none !important;
 }
+
 .ss-widget-toolbar {
     position: absolute;
     top: 10px;
     padding-left: 5px;
     padding-bottom: 5px;
     opacity: 0.9;
-    right:0;
+    right: 0;
     border-bottom-left-radius: 5px;
     background-color: #FFF;
 }
-.embed-responsive ~ .ss-widget-toolbar {
+
+.list-group-item .video-block {
     z-index: 2;
 }

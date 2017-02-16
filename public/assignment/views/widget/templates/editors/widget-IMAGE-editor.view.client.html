@@ -1,0 +1,40 @@
+<form>
+    <h1>Image Editor</h1>
+    <div class="form-group">
+        <label for="widget-name">Name</label>
+        <input ng-model="model.widget.name" type="text"
+               class="form-control" id="widget-name" name="widget-name"/>
+    </div>
+    <div class="form-group">
+        <label for="widget-url">URL</label>
+        <input ng-model="model.widget.url" type="url"
+               class="form-control" id="widget-url" name="widget-url"/>
+    </div>
+    <div class="form-group">
+        <label for="widget-width">Width</label>
+        <input ng-model="model.widget.width" type="text"
+               class="form-control" id="widget-width" name="widget-width"/>
+    </div>
+    <div class="form-group">
+        <label for="widget-file">Upload</label>
+        <input type="file" class="form-control" id="widget-file" name="widget-file" />
+    </div>
+    <div class="alert alert-danger" ng-show="model.error">
+        {{model.error}}
+    </div>
+
+    <div class="alert alert-success" ng-show="model.message">
+        {{model.message}}
+    </div>
+
+    <div class="form-group">
+        <a ng-click="model.updateWidget(model.widget)" class="btn btn-primary btn-block">
+            Update
+        </a>
+    </div>
+    <div class="form-group">
+        <a ng-click="model.deleteWidget()" class="btn btn-danger btn-block">
+            Delete
+        </a>
+    </div>
+</form>

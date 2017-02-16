@@ -1,0 +1,96 @@
+<div class="view-container new-page" ng-controller="NewPageController as model">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 hidden-xs">
+                    <div class="navbar-text pull-left no-left-margin">
+                        <a class="navbar-link"
+                           href="#/user/{{model.userID}}/website/{{model.websiteID}}/page">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand navbar-link"
+                           href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/new">
+                            Pages
+                        </a>
+                    </div>
+                    <div class="navbar-text pull-right no-right-margin">
+                        <a class="navbar-link"
+                           href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/new">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="navbar-text pull-left no-left-margin visible-xs-block">
+                        <a class="navbar-link"
+                           href="#/user/{{model.userID}}/website/{{model.websiteID}}/page">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-text pull-right no-right-margin">
+                        <a class="navbar-link" ng-click="model.createPage(page)">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand navbar-link"
+                           href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/new">
+                            New Page
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 hidden-xs scrollable-pane left-pane">
+                <ul class="list-group">
+                    <li ng-repeat="page in model.pages" class="list-group-item">
+                        <a href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/{{page._id}}"
+                           class="pull-right">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                        <a href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/{{page._id}}/widget">
+                            {{page.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-8 col-xs-12 scrollable-pane right-pane">
+                <form>
+                    <div class="form-group">
+                        <label for="page-name">Name</label>
+                        <input ng-model="page.name" type="text"
+                               class="form-control" id="page-name"
+                               name="page-name" placeholder="Page Name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="page-description">Description</label>
+                        <textarea ng-model="page.description" class="form-control"
+                                  rows="3" id="page-description"
+                                  name="page-description" placeholder="Page Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <a ng-click="model.createPage(page)" class="btn btn-primary btn-block">
+                            Create
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right no-right-margin">
+                <a class="navbar-link" href="#/user/{{model.userID}}">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>

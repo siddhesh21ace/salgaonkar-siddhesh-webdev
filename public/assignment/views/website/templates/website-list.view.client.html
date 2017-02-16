@@ -1,0 +1,45 @@
+<div class="view-container website-list-page" ng-controller="WebsiteListController as model">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right no-right-margin">
+                <a href="#/user/{{model.userID}}/website/new" class="navbar-link">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+            <div class="navbar-text pull-left no-left-margin">
+                <a href="#/user/{{model.userID}}" class="navbar-link">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a href="#/user/{{model.userID}}/website"
+                   class="navbar-brand no-left-padding no-left-margin">
+                    Websites
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <ul class="list-group">
+            <li ng-repeat="website in model.websites" class="list-group-item">
+                <a href="#/user/{{model.userID}}/website/{{website._id}}" class="pull-right">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <a href="#/user/{{model.userID}}/website/{{website._id}}/page">
+                    {{website.name}}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right no-right-margin">
+                <a class="navbar-link" href="#/user/{{model.userID}}">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>

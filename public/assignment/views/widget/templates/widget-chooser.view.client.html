@@ -1,0 +1,35 @@
+<div class="view-container widget-chooser-page" ng-controller="NewWidgetController as model">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left no-left-margin">
+                <a class="navbar-link" href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/{{model.pageID}}/widget">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand navbar-link"
+                   href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/{{model.pageID}}/widget/new">
+                    Choose Widget
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <ul class="list-group">
+            <li ng-repeat="widgetType in model.widgetTypes" class="list-group-item">
+                <a ng-click="model.createWidget(widgetType)">{{widgetType}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right no-right-margin">
+                <a class="navbar-link" href="#/user/{{model.userID}}">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
