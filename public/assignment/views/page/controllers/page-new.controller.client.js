@@ -20,6 +20,6 @@
         function createPage (page) {
             PageService.createPage(vm.websiteID, page);
             $location.url("/user/"+vm.userID+"/website/"+vm.websiteID+"/page");
-        };
+        }
     }
 })();

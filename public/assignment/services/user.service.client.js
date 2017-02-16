@@ -49,7 +49,7 @@
             "findUserById": findUserById,
             "findUserByUsername": findUserByUsername,
             "createUser": createUser,
-            "deleteUser": deleteUser,
+            "deleteUser": deleteUser
         };
         return api;
 

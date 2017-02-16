@@ -23,7 +23,7 @@
         function deletePage () {
             PageService.deletePage(vm.pageID);
             $location.url("/user/"+vm.userID+"/website/"+vm.websiteID+"/page");
-        };
+        }
 
         function updatePage (updatedPage) {
             var page = PageService.updatePage(vm.pageID, updatedPage);
@@ -33,6 +33,6 @@
                 vm.message = "Page successfully updated";
             }
             console.log(page);
-        };
+        }
     }
 })();

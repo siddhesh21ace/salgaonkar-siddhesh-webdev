@@ -30,7 +30,7 @@
         function deleteWidget () {
             WidgetService.deleteWidget(vm.widgetID);
             $location.url("/user/"+vm.userID+"/website/"+vm.websiteID+"/page/"+vm.pageID+"/widget");
-        };
+        }
 
         function updateWidget (updatedWidget) {
             var widget = WidgetService.updateWidget(vm.widgetID, updatedWidget);
@@ -40,6 +40,6 @@
                 vm.message = "Widget successfully updated";
             }
             console.log(widget);
-        };
+        }
     }
 })();

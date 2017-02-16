@@ -23,6 +23,6 @@
             var wgID = WidgetService.createWidgetFromType(vm.pageID, widgetType);
             $location.url("/user/" + vm.userID + "/website/" + vm.websiteID +
                 "/page/" + vm.pageID + "/widget/" + wgID);
-        };
+        }
     }
 })();

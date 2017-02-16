@@ -19,6 +19,6 @@
         function createWebsite (website) {
             WebsiteService.createWebsite(vm.userID, website);
             $location.url("/user/"+vm.userID+"/website");
-        };
+        }
     }
 })();

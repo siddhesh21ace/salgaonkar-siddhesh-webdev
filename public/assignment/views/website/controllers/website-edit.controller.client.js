@@ -22,7 +22,7 @@
         function deleteWebsite () {
             WebsiteService.deleteWebsite(vm.websiteID);
             $location.url("/user/"+vm.userID+"/website");
-        };
+        }
 
         function updateWebsite (updatedWebsite) {
             var website = WebsiteService.updateWebsite(vm.websiteID, updatedWebsite);
@@ -32,6 +32,6 @@
                 vm.message = "Website successfully updated";
             }
             console.log(website);
-        };
+        }
     }
 })();

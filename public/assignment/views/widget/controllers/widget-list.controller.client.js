@@ -22,8 +22,7 @@
         init();
 
         function getWidgetTemplateUrl(widgetType) {
-            var url = 'views/widget/templates/widget-'+widgetType+'.view.client.html';
-            return url;
+            return 'views/widget/templates/widget-'+widgetType+'.view.client.html';
         }
 
         function getTrustedHtml(html) {
