@@ -15,25 +15,9 @@
     margin-left: 0;
 }
 
-.navbar-default {
-    background-image: none !important;
-}
-
-.navbar-default {
-    background-color: #3E8ACC;
-}
-
-.navbar-default .navbar-brand, .navbar-default .navbar-link {
-    color: #FFF;
-}
-
 .list-group-item {
     border: none !important;
     padding: 10px 0 !important;
-}
-
-a.list-group-item, button.list-group-item {
-    color: #3E8ACC;
 }
 
 .no-margin {
@@ -85,7 +69,6 @@ textarea.form-control {
     opacity: 0.9;
     right: 0;
     border-bottom-left-radius: 5px;
-    background-color: #FFF;
 }
 
 .list-group-item .video-block {
