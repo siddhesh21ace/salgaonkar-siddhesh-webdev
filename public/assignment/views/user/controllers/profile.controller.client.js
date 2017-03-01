@@ -1,7 +1,7 @@
 /**
  * Created by Siddhesh on 2/14/2017.
  */
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
         .controller("ProfileController", profileController);
@@ -13,22 +13,39 @@
         vm.deleteUser = deleteUser;
 
         function init() {
-            vm.user = UserService.findUserById(vm.userID);
+            UserService.findUserById(vm.userID)
+                .success(function (user) {
+                    vm.user = user;
+                })
         }
+
         init();
 
-        function update (updatedUser) {
-            var user = UserService.updateUser(vm.userID, updatedUser);
-            if(user == null) {
-                vm.error = "Unable to update user";
-            } else {
-                vm.message = "User successfully updated";
-            }
+        function update(updatedUser) {
+            UserService.updateUser(vm.userID, updatedUser)
+                .success(function (user) {
+                    if (user == null) {
+                        vm.error = "Unable to update user";
+                    } else {
+                        vm.message = "User successfully updated";
+                    }
+                })
+                .error(function () {
+                    vm.error = "Unable to update user";
+                })
         }
 
         function deleteUser() {
-            UserService.deleteUser(vm.userID);
-            $location.url("/login");
+            var answer = confirm("Are you sure?");
+            if (answer) {
+                UserService.deleteUser(vm.userID)
+                    .success(function () {
+                        $location.url("/login");
+                    })
+                    .error(function () {
+                        vm.error = 'Unable to delete user';
+                    });
+            }
         }
     }
 })();

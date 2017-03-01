@@ -22,13 +22,13 @@
     </nav>
 
     <div class="container-fluid">
-        <ul class="list-group">
-            <li ng-repeat="widget in model.widgets" class="list-group-item">
+        <ul class="list-group" wbdv-sortable="">
+            <li id="{{widget._id}}" ng-repeat="widget in model.widgets" class="list-group-item">
                 <div class="ss-widget-toolbar" ng-class="{'video-block' : widget.widgetType == 'YOUTUBE'}">
                     <a href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/{{model.pageID}}/widget/{{widget._id}}">
                         <span class="glyphicon glyphicon-cog"></span>
                     </a>
-                    <span class="glyphicon glyphicon-align-justify"></span>
+                    <span class="glyphicon glyphicon-align-justify handle"></span>
                 </div>
                 <div ng-switch="widget.widgetType">
                     <div ng-switch-when="HEADER">

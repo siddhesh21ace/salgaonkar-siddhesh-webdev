@@ -12,12 +12,20 @@
 
         function login(user) {
             if (user != undefined || user != null) {
-                var loginUser = UserService.findUserByCredentials(user.username, user.password);
-                if (loginUser != null) {
-                    $location.url('/user/' + loginUser._id);
-                } else {
-                    vm.error = 'User not found';
-                }
+                var promise = UserService.findUserByCredentials(user.username, user.password);
+                promise
+                    .success(function (user) {
+                        var loginUser = user;
+                        if (loginUser != null || loginUser != undefined) {
+                            $location.url('/user/' + loginUser._id);
+                        } else {
+                            vm.error = 'User not found';
+                        }
+                    })
+                    .error(function (err) {
+                        vm.error = err;
+                        console.log(err);
+                    })
             } else {
                 vm.error = 'Please enter correct credentials';
             }

@@ -20,9 +20,14 @@
         init();
 
         function createWidget(widgetType) {
-            var wgID = WidgetService.createWidgetFromType(vm.pageID, widgetType);
-            $location.url("/user/" + vm.userID + "/website/" + vm.websiteID +
-                "/page/" + vm.pageID + "/widget/" + wgID);
+            WidgetService.createWidgetFromType(vm.pageID, widgetType)
+                .success(function (widget) {
+                    $location.url("/user/" + vm.userID + "/website/" + vm.websiteID +
+                        "/page/" + vm.pageID + "/widget/" + widget._id);
+                })
+                .error(function () {
+                    vm.error = 'Err..something went wrong. Please try again.';
+                });
         }
     }
 })();

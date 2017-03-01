@@ -1,7 +1,7 @@
 /**
  * Created by Siddhesh on 2/14/2017.
  */
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
         .controller("EditWebsiteController", editWebsiteController);
@@ -14,24 +14,40 @@
         vm.updateWebsite = updateWebsite;
 
         function init() {
-            vm.websites = WebsiteService.findWebsitesByUser(vm.userID);
-            vm.website = WebsiteService.findWebsiteById(vm.websiteID);
+            WebsiteService.findWebsitesByUser(vm.userID)
+                .success(function (websites) {
+                    vm.websites = websites;
+                });
+            WebsiteService.findWebsiteById(vm.websiteID)
+                .success(function (website) {
+                    vm.website = website;
+                });
         }
+
         init();
 
-        function deleteWebsite () {
-            WebsiteService.deleteWebsite(vm.websiteID);
-            $location.url("/user/"+vm.userID+"/website");
+        function deleteWebsite() {
+            var answer = confirm("Are you sure?");
+            if (answer) {
+                WebsiteService.deleteWebsite(vm.websiteID)
+                    .success(function () {
+                        $location.url("/user/" + vm.userID + "/website");
+                    })
+                    .error(function () {
+                        vm.error = 'Unable to delete website';
+                    });
+            }
         }
 
-        function updateWebsite (updatedWebsite) {
-            var website = WebsiteService.updateWebsite(vm.websiteID, updatedWebsite);
-            if(website == null) {
-                vm.error = "Unable to update website";
-            } else {
-                vm.message = "Website successfully updated";
-            }
-            console.log(website);
+        function updateWebsite(updatedWebsite) {
+            WebsiteService.updateWebsite(vm.websiteID, updatedWebsite)
+                .success(function () {
+                    vm.message = "Website successfully updated";
+                    $location.url("/user/" + vm.userID + "/website");
+                })
+                .error(function () {
+                    vm.error = "Unable to update website";
+                });
         }
     }
 })();

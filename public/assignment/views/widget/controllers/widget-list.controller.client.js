@@ -1,7 +1,7 @@
 /**
  * Created by Siddhesh on 2/14/2017.
  */
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
         .controller("WidgetListController", widgetListController);
@@ -17,12 +17,16 @@
         vm.getWidgetTemplateUrl = getWidgetTemplateUrl;
 
         function init() {
-            vm.widgets = WidgetService.findWidgetsByPageId(vm.pageID);
+            WidgetService.findWidgetsByPageId(vm.pageID)
+                .success(function (widgets) {
+                    vm.widgets = widgets;
+                });
         }
+
         init();
 
         function getWidgetTemplateUrl(widgetType) {
-            return 'views/widget/templates/widget-'+widgetType+'.view.client.html';
+            return 'views/widget/templates/widget-' + widgetType + '.view.client.html';
         }
 
         function getTrustedHtml(html) {
@@ -32,7 +36,7 @@
         function getYouTubeEmbedUrl(widgetUrl) {
             var urlParts = widgetUrl.split('/');
             var id = urlParts[urlParts.length - 1];
-            var url = "https://www.youtube.com/embed/"+id;
+            var url = "https://www.youtube.com/embed/" + id;
             return $sce.trustAsResourceUrl(url);
         }
     }

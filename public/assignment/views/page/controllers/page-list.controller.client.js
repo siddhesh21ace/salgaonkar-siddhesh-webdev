@@ -1,7 +1,7 @@
 /**
  * Created by Siddhesh on 2/14/2017.
  */
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
         .controller("PageListController", pageListController);
@@ -12,8 +12,12 @@
         vm.websiteID = $routeParams['wid'];
 
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteID);
+            PageService.findPageByWebsiteId(vm.websiteID)
+                .success(function (pages) {
+                    vm.pages = pages;
+                })
         }
+
         init();
     }
 })();

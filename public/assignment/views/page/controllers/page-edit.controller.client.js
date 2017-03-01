@@ -1,7 +1,7 @@
 /**
  * Created by Siddhesh on 2/14/2017.
  */
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
         .controller("EditPageController", editPageController);
@@ -17,22 +17,42 @@
         function init() {
             vm.pages = PageService.findPageByWebsiteId(vm.websiteID);
             vm.page = PageService.findPageById(vm.pageID);
+
+            PageService.findPageByWebsiteId(vm.websiteID)
+                .success(function (pages) {
+                    vm.pages = pages;
+                });
+
+            PageService.findPageById(vm.pageID)
+                .success(function (page) {
+                    vm.page = page;
+                });
         }
+
         init();
 
-        function deletePage () {
-            PageService.deletePage(vm.pageID);
-            $location.url("/user/"+vm.userID+"/website/"+vm.websiteID+"/page");
+        function deletePage() {
+            var answer = confirm("Are you sure?");
+            if (answer) {
+                PageService.deletePage(vm.pageID)
+                    .success(function () {
+                        $location.url("/user/" + vm.userID + "/website/" + vm.websiteID + "/page");
+                    })
+                    .error(function () {
+                        vm.error = 'Unable to delete page';
+                    });
+            }
         }
 
-        function updatePage (updatedPage) {
-            var page = PageService.updatePage(vm.pageID, updatedPage);
-            if(page == null) {
-                vm.error = "Unable to update page";
-            } else {
-                vm.message = "Page successfully updated";
-            }
-            console.log(page);
+        function updatePage(updatedPage) {
+            PageService.updatePage(vm.pageID, updatedPage)
+                .success(function () {
+                    vm.message = "Page successfully updated";
+                    $location.url("/user/" + vm.userID + "/website/" + vm.websiteID + "/page");
+                })
+                .error(function () {
+                    vm.error = "Unable to update page";
+                });
         }
     }
 })();

@@ -1,7 +1,7 @@
 /**
  * Created by Siddhesh on 2/14/2017.
  */
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
         .controller("NewWebsiteController", newWebsiteController);
@@ -12,13 +12,27 @@
         vm.createWebsite = createWebsite;
 
         function init() {
-            vm.websites = WebsiteService.findWebsitesByUser(vm.userID);
+            WebsiteService.findWebsitesByUser(vm.userID)
+                .success(function (websites) {
+                    vm.websites = websites;
+                });
         }
+
         init();
 
-        function createWebsite (website) {
-            WebsiteService.createWebsite(vm.userID, website);
-            $location.url("/user/"+vm.userID+"/website");
+        function createWebsite(website) {
+            if (website != null && website != undefined) {
+                WebsiteService.createWebsite(vm.userID, website)
+                    .success(function (website) {
+                        console.log(website);
+                        $location.url("/user/" + vm.userID + "/website");
+                    })
+                    .error(function () {
+                        vm.error = 'Err..something went wrong. Please try again.';
+                    });
+            } else {
+                vm.error = "Please enter all the details";
+            }
         }
     }
 })();
