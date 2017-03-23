@@ -13,7 +13,6 @@ module.exports = function () {
         "findWebsiteById": findWebsiteById,
         "updateWebsite": updateWebsite,
         "deleteWebsite": deleteWebsite,
-        //"deleteWebsiteAndChildren": deleteWebsiteAndChildren,
         "setModels": setModels
     };
 
@@ -37,7 +36,7 @@ module.exports = function () {
     }
 
     function deleteWebsite(websiteId) {
-        return WebsiteModel.remove({"_id":websiteId});
+        return WebsiteModel.remove({"_id": websiteId});
     }
 
     function setModels(_models) {

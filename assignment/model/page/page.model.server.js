@@ -37,7 +37,7 @@ module.exports = function () {
     }
 
     function deletePage(pageId) {
-        return PageModel.remove({"_id":pageId});
+        return PageModel.remove({"_id": pageId});
     }
 
     function findAllWidgetsForPage(pageId) {

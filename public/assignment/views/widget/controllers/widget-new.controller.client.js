@@ -38,7 +38,7 @@
                 type: "HEADING",
                 name: "Sample Heading Widget",
                 text: "Sample Heading",
-                size: 1
+                size: "1"
             };
             createWidget(widget);
         }

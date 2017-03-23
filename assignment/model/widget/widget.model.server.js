@@ -39,7 +39,7 @@ module.exports = function () {
     }
 
     function deleteWidget(widgetId) {
-        return WidgetModel.remove({"_id":widgetId});
+        return WidgetModel.remove({"_id": widgetId});
     }
 
     function reorderWidget(pageId, start, end) {

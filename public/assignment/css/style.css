@@ -75,7 +75,7 @@ textarea.form-control {
     z-index: 2;
 }
 
-.navbar-link {
+.navbar-link, .handle {
     cursor: pointer;
 }
 
