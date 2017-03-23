@@ -13,8 +13,7 @@
             "findWidgetById": findWidgetById,
             "updateWidget": updateWidget,
             "deleteWidget": deleteWidget,
-            "createWidgetFromType": createWidgetFromType,
-            "sortWidgets": sortWidgets
+            "sortWidgets": sortWidgets,
         };
         return api;
 
@@ -38,21 +37,10 @@
             return $http.delete('/api/widget/' + widgetID);
         }
 
-        function createWidgetFromType(pageID, widgetType) {
-            var widget = {
-                "name": "Sample Widget",
-                "size": "1",
-                "text": "Sample Text",
-                "url": "https://static.pexels.com/photos/198310/pexels-photo-198310.jpeg",
-                "width": "100%",
-                "widgetType": widgetType.toUpperCase()
-            };
-            return createWidget(pageID, widget);
-        }
-
         function sortWidgets(initial, final, pageID) {
             var url = "/api/page/" + pageID + "/widget?initial=" + initial + "&final=" + final;
             $http.put(url);
         }
+
     }
 })();

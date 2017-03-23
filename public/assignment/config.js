@@ -69,9 +69,14 @@
                 title : 'New Widget'
             })
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid",{
-                templateUrl: 'views/widget/templates/widget-edit.view.client.html'
-                ,controller: "EditWidgetController",
+                templateUrl: 'views/widget/templates/widget-edit.view.client.html',
+                controller: "EditWidgetController",
                 title : 'Edit Widget'
+            })
+            .when("/user/:uid/website/:wid/page/:pid/widget/:wgid/flickrsearch",{
+                templateUrl: 'views/widget/templates/widget-flickr-search.view.client.html',
+                controller: "FlickrImageSearchController",
+                title : 'Search Flickr'
             })
             .when("/", {
                 redirectTo: "/login"

@@ -18,8 +18,20 @@
 
     <div class="container-fluid">
         <ul class="list-group">
-            <li ng-repeat="widgetType in model.widgetTypes" class="list-group-item">
-                <a class="btn" ng-click="model.createWidget(widgetType)">{{widgetType}}</a>
+            <li class="list-group-item">
+                <a class="btn" ng-click="model.createHeadingWidget()">Heading</a>
+            </li>
+            <li class="list-group-item">
+                <a class="btn" ng-click="model.createHTMLWidget()">HTML</a>
+            </li>
+            <li class="list-group-item">
+                <a class="btn" ng-click="model.createTextInputWidget()">Text Input</a>
+            </li>
+            <li class="list-group-item">
+                <a class="btn" ng-click="model.createImageWidget()">Image</a>
+            </li>
+            <li class="list-group-item">
+                <a class="btn" ng-click="model.createYoutubeWidget()">YouTube</a>
             </li>
         </ul>
     </div>

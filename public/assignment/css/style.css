@@ -78,3 +78,12 @@ textarea.form-control {
 .navbar-link {
     cursor: pointer;
 }
+
+.wbdev-flickr-image-box {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.wbdev-flickr-image-box img {
+    cursor: pointer;
+}
