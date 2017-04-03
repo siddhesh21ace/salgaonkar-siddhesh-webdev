@@ -23,30 +23,57 @@
 
     <div class="container-fluid">
         <div ng-if="model.widget" ng-switch="model.widget.type">
-            <div ng-switch-when="HEADING">
-                <ng-include
-                        src="'views/widget/templates/editors/widget-HEADER-editor.view.client.html'">
-                </ng-include>
-            </div>
             <div ng-switch-when="IMAGE">
                 <ng-include
                         src="'views/widget/templates/editors/widget-IMAGE-editor.view.client.html'">
                 </ng-include>
             </div>
-            <div ng-switch-when="HTML">
-                <ng-include
-                        src="'views/widget/templates/editors/widget-HTML-editor.view.client.html'">
-                </ng-include>
-            </div>
-            <div ng-switch-when="YOUTUBE">
-                <ng-include
-                        src="'views/widget/templates/editors/widget-YOUTUBE-editor.view.client.html'">
-                </ng-include>
-            </div>
-            <div ng-switch-when="TEXT-INPUT">
-                <ng-include
-                        src="'views/widget/templates/editors/widget-TEXT-editor.view.client.html'">
-                </ng-include>
+            <div ng-switch-default>
+                <form name="editWidgetForm" novalidate>
+                    <div ng-if="model.widget" ng-switch="model.widget.type">
+                        <div ng-switch-when="HEADING">
+                            <ng-include
+                                    src="'views/widget/templates/editors/widget-HEADER-editor.view.client.html'">
+                            </ng-include>
+                        </div>
+                        <div ng-switch-when="HTML">
+                            <ng-include
+                                    src="'views/widget/templates/editors/widget-HTML-editor.view.client.html'">
+                            </ng-include>
+                        </div>
+                        <div ng-switch-when="YOUTUBE">
+                            <ng-include
+                                    src="'views/widget/templates/editors/widget-YOUTUBE-editor.view.client.html'">
+                            </ng-include>
+                        </div>
+                        <div ng-switch-when="TEXT-INPUT">
+                            <ng-include
+                                    src="'views/widget/templates/editors/widget-TEXT-editor.view.client.html'">
+                            </ng-include>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-danger" ng-show="model.error">
+                        {{model.error}}
+                    </div>
+
+                    <div class="alert alert-success" ng-show="model.message">
+                        {{model.message}}
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit"
+                                ng-click="editWidgetForm.$valid && model.updateWidget(model.widget)"
+                                class="btn btn-primary btn-block">
+                            Update
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <a ng-click="model.deleteWidget()" class="btn btn-danger btn-block">
+                            Delete
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

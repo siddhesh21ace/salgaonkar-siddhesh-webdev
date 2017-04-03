@@ -45,6 +45,10 @@
         }
 
         function updatePage(updatedPage) {
+            if(updatedPage && !updatedPage.name) {
+                vm.missingName = true;
+                return;
+            }
             PageService.updatePage(vm.pageID, updatedPage)
                 .success(function () {
                     vm.message = "Page successfully updated";

@@ -4,7 +4,7 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("EditWidgetController", editWidgetController)
+        .controller("EditWidgetController", editWidgetController);
 
     function editWidgetController($routeParams, $location, WidgetService) {
         var vm = this;
@@ -47,6 +47,10 @@
         }
 
         function updateWidget(updatedWidget) {
+            if(updatedWidget && !updatedWidget.name) {
+                vm.missingName = true;
+                return;
+            }
             WidgetService.updateWidget(vm.widgetID, updatedWidget)
                 .success(function () {
                     vm.message = "Widget successfully updated";

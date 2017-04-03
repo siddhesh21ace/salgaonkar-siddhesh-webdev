@@ -2,7 +2,6 @@
  * Created by Siddhesh on 3/21/2017.
  */
 module.exports = function () {
-    var models = null;
     var mongoose = require("mongoose");
     var websiteSchema = require('./website.schema.server');
     var WebsiteModel = mongoose.model('WebsiteModel', websiteSchema);
@@ -12,8 +11,7 @@ module.exports = function () {
         "findAllWebsitesForUser": findAllWebsitesForUser,
         "findWebsiteById": findWebsiteById,
         "updateWebsite": updateWebsite,
-        "deleteWebsite": deleteWebsite,
-        "setModels": setModels
+        "deleteWebsite": deleteWebsite
     };
 
     return api;
@@ -39,7 +37,4 @@ module.exports = function () {
         return WebsiteModel.remove({"_id": websiteId});
     }
 
-    function setModels(_models) {
-        models = _models;
-    }
 };

@@ -13,9 +13,34 @@
             "findUserById": findUserById,
             "findUserByUsername": findUserByUsername,
             "createUser": createUser,
-            "deleteUser": deleteUser
+            "deleteUser": deleteUser,
+            "login": login,
+            "isLoggedIn": isLoggedIn,
+            "logout": logout,
+            "findCurrentUser": findCurrentUser,
+            "register": register
         };
         return api;
+
+        function register(user) {
+            return $http.post("/api/register", user);
+        }
+
+        function findCurrentUser() {
+            return $http.get("/api/user");
+        }
+
+        function logout() {
+            return $http.post("/api/logout");
+        }
+
+        function login(user) {
+            return $http.post("/api/login", user);
+        }
+
+        function isLoggedIn() {
+            return $http.post("/api/isLoggedIn");
+        }
 
         function deleteUser(userId) {
             return $http.delete('/api/user/' + userId);

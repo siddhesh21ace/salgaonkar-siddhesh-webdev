@@ -47,7 +47,7 @@
             widget = {
                 type: "HTML",
                 name: "Sample HTML Widget",
-                text: "<p>Sample HTML</p>",
+                text: "<p>Sample HTML</p>"
             };
             createWidget(widget);
         }

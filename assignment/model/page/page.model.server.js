@@ -2,7 +2,6 @@
  * Created by Siddhesh on 3/21/2017.
  */
 module.exports = function () {
-    var models = null;
     var mongoose = require("mongoose");
     var pageSchema = require('./page.schema.server');
     var PageModel = mongoose.model('PageModel', pageSchema);
@@ -13,8 +12,7 @@ module.exports = function () {
         "findPageById": findPageById,
         "updatePage": updatePage,
         "deletePage": deletePage,
-        "findAllWidgetsForPage": findAllWidgetsForPage,
-        "setModels": setModels
+        "findAllWidgetsForPage": findAllWidgetsForPage
     };
 
     return api;
@@ -44,9 +42,5 @@ module.exports = function () {
         return PageModel.findById(pageId)
             .populate("widgets")
             .exec();
-    }
-
-    function setModels(_models) {
-        models = _models;
     }
 };

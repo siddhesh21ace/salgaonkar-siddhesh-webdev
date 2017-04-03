@@ -11,20 +11,28 @@
         vm.userID = $routeParams['uid'];
         vm.update = update;
         vm.deleteUser = deleteUser;
+        vm.logout = logout;
 
         function init() {
-            UserService.findUserById(vm.userID)
-                .success(function (user) {
-                    vm.user = user;
-                })
+            UserService.findCurrentUser()
+                .then(function(response) {
+                    vm.user = response.data;
+                });
         }
 
         init();
 
+        function logout() {
+            UserService.logout()
+                .then(function (response) {
+                    $location.url("/login");
+                });
+        }
+
         function update(updatedUser) {
             UserService.updateUser(vm.userID, updatedUser)
                 .success(function (user) {
-                    if (user == null) {
+                    if (user === null) {
                         vm.error = "Unable to update user";
                     } else {
                         vm.message = "User successfully updated";

@@ -22,7 +22,11 @@
         init();
 
         function createPage(page) {
-            if (page != null && page != undefined) {
+            if (page) {
+                if(!page.name) {
+                    vm.missingName = true;
+                    return;
+                }
                 PageService.createPage(vm.websiteID, page)
                     .success(function (page) {
                         console.log(page);

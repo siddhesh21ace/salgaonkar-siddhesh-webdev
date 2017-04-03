@@ -21,7 +21,11 @@
         init();
 
         function createWebsite(website) {
-            if (website != null && website != undefined) {
+            if (website) {
+                if(!website.name) {
+                    vm.missingName = true;
+                    return;
+                }
                 WebsiteService.createWebsite(vm.userID, website)
                     .success(function (website) {
                         console.log(website);

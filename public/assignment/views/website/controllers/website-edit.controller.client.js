@@ -40,6 +40,10 @@
         }
 
         function updateWebsite(updatedWebsite) {
+            if(updatedWebsite && !updatedWebsite.name) {
+                vm.missingName = true;
+                return;
+            }
             WebsiteService.updateWebsite(vm.websiteID, updatedWebsite)
                 .success(function () {
                     vm.message = "Website successfully updated";

@@ -2,7 +2,6 @@
  * Created by Siddhesh on 3/21/2017.
  */
 module.exports = function () {
-    var models = null;
     var mongoose = require("mongoose");
     var userSchema = require('./user.schema.server');
     var UserModel = mongoose.model('UserModel', userSchema);
@@ -14,10 +13,14 @@ module.exports = function () {
         findUserByCredentials: findUserByCredentials,
         deleteUser: deleteUser,
         updateUser: updateUser,
-        setModels: setModels
+        findUserByFacebookId: findUserByFacebookId
     };
 
     return api;
+
+    function findUserByFacebookId(facebookId) {
+        return UserModel.findOne({'facebook.id': facebookId});
+    }
 
     function createUser(user) {
         delete user._id;
@@ -29,11 +32,11 @@ module.exports = function () {
     }
 
     function findUserbyUsername(username) {
-        return UserModel.find({"username": username});
+        return UserModel.findOne({"username": username});
     }
 
     function findUserByCredentials(username, password) {
-        return UserModel.find({"username": username, "password": password});
+        return UserModel.findOne({"username": username, "password": password});
     }
 
     function deleteUser(userId) {
@@ -44,7 +47,4 @@ module.exports = function () {
         return UserModel.update({"_id": userId}, {$set: updatedUser});
     }
 
-    function setModels(_models) {
-        models = _models;
-    }
 };

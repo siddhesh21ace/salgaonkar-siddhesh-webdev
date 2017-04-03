@@ -11,21 +11,19 @@
         vm.login = login;
 
         function login(user) {
-            if (user != undefined || user != null) {
-                var promise = UserService.findUserByCredentials(user.username, user.password);
-                promise
-                    .success(function (user) {
-                        var loginUser = user;
-                        if (loginUser != null || loginUser != undefined) {
-                            $location.url('/user/' + loginUser._id);
+            if (user) {
+                UserService.login(user)
+                    .then(function (response) {
+                        var loggedInUser = response.data;
+                        if (loggedInUser) {
+                            $location.url('/user/' + loggedInUser._id);
                         } else {
                             vm.error = 'User not found';
                         }
-                    })
-                    .error(function (err) {
-                        vm.error = err;
+                    }, function (err) {
+                        vm.error = err.data;
                         console.log(err);
-                    })
+                    });
             } else {
                 vm.error = 'Please enter correct credentials';
             }
