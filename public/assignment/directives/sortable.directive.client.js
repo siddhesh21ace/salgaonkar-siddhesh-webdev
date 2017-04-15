@@ -14,7 +14,7 @@
                     initial = $(ui.item).index();
                 },
                 stop: function (event, ui) {
-                    final = $(ui.item).index();
+                        final = $(ui.item).index();
                     scope.sortableController.sort(initial, final, $routeParams['pid']);
                 },
                 handle: ".handle",
